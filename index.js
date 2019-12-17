@@ -12,9 +12,9 @@ function getDefaultOptions() {
     code: `#include <iostream>\nint main()\n{\n  std::cout << "Hello World!" << std::endl;\n  return 0;\n}\n`,
     daysOff: [],
     offFraction: 0.0,
-    maxCommitsPerPage: 10,
+    maxCommitsPerDay: 10,
   };
-};
+}
 
 function randomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
@@ -52,7 +52,7 @@ function makeProgressBar(total) {
   });
 }
 
-module.exports = class RockStar {
+module.exports = class Rockstar {
   constructor({ ...options }) {
     options = Object.assign(getDefaultOptions(), options);
 
@@ -61,7 +61,7 @@ module.exports = class RockStar {
     this.code = options.code;
     this.daysOff = options.daysOff.map(capitalize);
     this.offFraction = options.offFraction;
-    this.maxCommitsPerPage = options.maxCommitsPerPage;
+    this.maxCommitsPerDay = options.maxCommitsPerDay;
     this.messages = loadCommitMessages(path.join(__dirname, 'commit-messages.json'));
   }
 
@@ -80,7 +80,7 @@ module.exports = class RockStar {
         continue;
       }
   
-      let commitCount = randomInt(1, config.maxCommitsPerPage);
+      let commitCount = randomInt(1, this.maxCommitsPerDay);
   
       while (commitCount--) {
         dates.push(setRandomTime(date));
