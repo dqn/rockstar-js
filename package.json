@@ -1,0 +1,18 @@
+{
+  "name": "rockstar-js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dayjs": "^1.8.17",
+    "progress": "^2.0.3",
+    "simple-git": "^1.129.0",
+    "uuid": "^3.3.3"
+  }
+}
